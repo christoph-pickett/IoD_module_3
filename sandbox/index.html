@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Webpage</title>
+  </head>
+  <body>
+    <h1>Coin Flip</h1>
+    <div id="coin_flip_result"></div>
+
+    <script>
+      // COIN FLIP GAME
+      const HEADS = "HEADS";
+      const TAILS = "TAILS";
+
+      // FUNCTIONS
+      const flipcoin = () => {
+        const result = Math.random() < 0.5 ? HEADS : TAILS;
+        return result;
+      };
+
+      function updateDisplayWithFlipResult(result) {
+        // if (result === HEADS || result === TAILS) {
+        const displayElement = document.getElementById("coin_flip_result");
+        displayElement.innerText = result;
+        // }
+      }
+
+      function fiveGameDemo() {
+        let resultsString = "";
+
+        for (let i = 0; i < 5; i++) {
+          resultsString += flipcoin() + " ";
+        }
+
+        return resultsString;
+      }
+
+      const flipResult = fiveGameDemo();
+      updateDisplayWithFlipResult(flipResult);
+    </script>
+  </body>
+</html>
