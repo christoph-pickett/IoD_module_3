@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic HTML Page</title>
+  </head>
+  <body>
+    <div>
+      <h5>user profile page</h5>
+
+      <label for="user_name_field">User Name:</label>
+      <input id="user_name_field" type="text" />
+
+      <label for="user_location_field">User location:</label>
+      <input id="user_location_field" type="text" />
+
+      <label for="user_address_field">User address:</label>
+      <input id="user_address_field" type="text" />
+    </div>
+    <script>
+      //------------------------------
+      const person = {
+        name: "Christoph",
+        db: "00/00/0000",
+        hobbies: [{ name: "soccer", location: "subi", years: 10 }],
+        pets: [{ name: "loki", species: "cat", personality: "asshole" }],
+        quirk: "unable to speak in a straight line",
+      };
+
+      // ----- OFF SCRIPT EXAMPLE --------------------------------------//
+      // I have a form that the user needs to update and
+      // an object is used to store the data
+      // if i am updating the object everytime the user enters something in
+      // the input fields, how do I create an undo mechanism.
+
+      // USING AN OBJECT TO STORE FORM DATA
+      // THE USER HAS ALREADY ENTERED THESE VALUES,
+      // BUT HAS RETURNED TO THEIR PROFILE FORM TO UPDATE SOMETHING
+      const formData = {
+        name: "christoph",
+        location: "perth",
+        address: "12 Something, somewhere",
+      };
+
+      // USER UPDATES THE INPUT FIELDS IN THEIR address
+      // BEFORE THE USER UPDATES, I WANT TO MAKE SURE I HAVE THE ORIGINAL VALUES STORED
+      const prevStoredFormData = {
+        ...formData,
+      };
+
+      const nameEle = document.getElementById("user_name_field");
+      const locationEle = document.getElementById("user_location_field");
+      const addressEle = document.getElementById("user_address_field");
+
+      // simulate the user has updated address
+      formData.address = "newly entered address";
+
+      nameEle.value = formData.address;
+      locationEle.value = formData.location;
+      addressEle.value = formData.address;
+
+      // the user has hit save
+      console.log(formData);
+
+      // the user realises their mistake and wants to revert their change
+      // how does my form know how this object was before it was updated?
+
+      // IF I TRY AND USE MY prevStoredFormData data to revert it what would happen?
+      console.log(prevStoredFormData.address);
+
+      // -------- END OF OFF SCRIPT EXAMPLE -----------------------------//
+
+      function User(first, last) {
+        // constructor function
+        this.first = first;
+        this.last = last;
+        this.hasShortName = () => this.first.length <= 3;
+      }
+      // we can create multiple users with different names
+      let user1 = new User("Tim", "Smith"); // need to use 'new'
+      const newUser = new User("Chamod", "Silva");
+      console.log(newUser);
+      console.log(newUser.hasShortName());
+
+      //   console.log(user1); // User { first: 'Tim', last: 'Smith' }
+      //   console.log(user1.hasShortName()); // true
+    </script>
+  </body>
+</html>
