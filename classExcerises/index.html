@@ -28,6 +28,15 @@
         quirk: "unable to speak in a straight line",
       };
 
+      function Pet(name, species) {
+        this.name = name;
+        this.species = species;
+      }
+
+      const christophsPet = new Pet("loki", "cat");
+      const kirbysPet = new Pet("swifty", "chicken");
+      const juansPet = new Pet("cat", "dog");
+
       // ----- OFF SCRIPT EXAMPLE --------------------------------------//
       // I have a form that the user needs to update and
       // an object is used to store the data
@@ -71,17 +80,17 @@
 
       // -------- END OF OFF SCRIPT EXAMPLE -----------------------------//
 
-      function User(first, last) {
-        // constructor function
-        this.first = first;
-        this.last = last;
-        this.hasShortName = () => this.first.length <= 3;
-      }
-      // we can create multiple users with different names
-      let user1 = new User("Tim", "Smith"); // need to use 'new'
-      const newUser = new User("Chamod", "Silva");
-      console.log(newUser);
-      console.log(newUser.hasShortName());
+      //   function User(first, last) {
+      //     // constructor function
+      //     this.first = first;
+      //     this.last = last;
+      //     this.hasShortName = () => this.first.length <= 3;
+      //   }
+      //   // we can create multiple users with different names
+      //   let user1 = new User("Tim", "Smith"); // need to use 'new'
+      //   const newUser = new User("Chamod", "Silva");
+      //   console.log(newUser);
+      //   console.log(newUser.hasShortName());
 
       //   console.log(user1); // User { first: 'Tim', last: 'Smith' }
       //   console.log(user1.hasShortName()); // true
